@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem
+            id="menu_Position_Information_Patient"
+            name="Thông tin chức vụ"
+            parent="Human_Resource_Managements.menu_Option"
+            action="action_Position_Information"
+            sequence="10"/>
+
+        <record id="view_PositionInformation_form" model="ir.ui.view">
+            <field name="name">position.information.form</field>
+            <field name="model">position.information</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="Position_ID" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="Name"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_PositionInformation_tree" model="ir.ui.view">
+            <field name="name">position.information.tree</field>
+            <field name="model">position.information</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="Position_ID"/>
+                    <field name="Name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_Position_Information" model="ir.actions.act_window">
+            <field name="name">Thông tin chức vụ</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">position.information</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Chưa có chức vụ nào. Tạo bản ghi mới!
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

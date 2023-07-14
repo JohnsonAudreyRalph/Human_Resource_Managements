@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem
+            id="menu_Employee_Information_Patient"
+            name="Thông tin nhân viên"
+            parent="Human_Resource_Managements.menu_Option"
+            action="action_Employee_Information"
+            sequence="10"/>
+
+        <record id="view_EmployeeInformation_form" model="ir.ui.view">
+            <field name="name">employee.information.form</field>
+            <field name="model">employee.information</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="Employee_ID" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="name"/>
+                            <field name="Age"/>
+                            <field name="Gender"/>
+                            <field name="Address"/>
+                            <field name="Date"/>
+                            <field name="Email"/>
+                            <field name="Phone_Number"/>
+                            <field name="Ethnicity"/>
+                            <field name="Department_ID"
+                                   options="{'no_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="Position_ID"
+                                   options="{'no_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="Education_Level_ID"
+                                   options="{'no_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="Salary_Grade_ID"
+                                   options="{'no_edit': True, 'no_create': True, 'no_open': True}"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_EmployeeInformation_tree" model="ir.ui.view">
+            <field name="name">employee.information.tree</field>
+            <field name="model">employee.information</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="Employee_ID"/>
+                    <field name="config_name"/>
+                    <field name="Age"/>
+                    <field name="Gender"/>
+                    <field name="Address"/>
+                    <field name="Date"/>
+                    <field name="Email"/>
+                    <field name="Phone_Number"/>
+                    <field name="Ethnicity"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_EmployeeInformation_search" model="ir.ui.view">
+            <field name="name">employee.information.search</field>
+            <field name="model">employee.information</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="Employee_ID"/>
+                    <field name="config_name"/>
+                    <field name="Age"/>
+                    <filter string="Lọc theo Nam" name="Nam" domain="[('Gender', '=', 'Male')]"/>
+                    <separator/>
+                    <filter string="Lọc theo Nữ" name="Nữ" domain="[('Gender', '=', 'Female')]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Nhóm theo tuổi" name="Age" domain="[]" context="{'group_by': 'Age'}"/>
+                        <separator/>
+                        <filter string="Nhóm theo dân tộc" name="Ethnicity" domain="[]" context="{'group_by': 'Ethnicity'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_Employee_Information" model="ir.actions.act_window">
+            <field name="search_view_id" ref="view_EmployeeInformation_search"/>
+            <field name="name">Thông tin nhân viên</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">employee.information</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Không có nhân viên nào. Tạo bản ghi mới!
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

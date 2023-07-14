@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem
+            id="menu_SalaryGrade_Patient"
+            name="Quản lý mức lương"
+            parent="Human_Resource_Managements.menu_Option"
+            action="action_SalaryGrade_Information"
+            sequence="10"/>
+
+        <record id="view_SalaryGrade_form" model="ir.ui.view">
+            <field name="name">salary.grade.form</field>
+            <field name="model">salary.grade</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="Salary_Grade_ID" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="Basic_Salary"/>
+                            <field name="Salary_Coefficient"/>
+                            <field name="Allowance_Coefficient"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_SalaryGrade_tree" model="ir.ui.view">
+            <field name="name">salary.grade.tree</field>
+            <field name="model">salary.grade</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="Salary_Grade_ID"/>
+                    <field name="Basic_Salary"/>
+                    <field name="Salary_Coefficient"/>
+                    <field name="Allowance_Coefficient"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_SalaryGrade_Information" model="ir.actions.act_window">
+            <field name="name">Quản lý mức lương</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">salary.grade</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Chưa có chức vụ nào. Tạo bản ghi mới!
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

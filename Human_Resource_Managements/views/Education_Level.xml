@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem
+            id="menu_Education_Level_Information_Patient"
+            name="Trình độ học vấn"
+            parent="Human_Resource_Managements.menu_Option"
+            action="action_Education_Level_Information"
+            sequence="10"/>
+        <record id="view_EducationLevel_form" model="ir.ui.view">
+            <field name="name">education.level.form</field>
+            <field name="model">education.level</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="Education_Level_ID" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="Name"/>
+                            <field name="Major"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_Education_Level_tree" model="ir.ui.view">
+            <field name="name">education.level.tree</field>
+            <field name="model">education.level</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="Education_Level_ID"/>
+                    <field name="Name"/>
+                    <field name="Major"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_Education_Level_Information" model="ir.actions.act_window">
+            <field name="name">Trình độ học vấn</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">education.level</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Chưa có bản ghi nào. Tạo bản ghi mới!
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

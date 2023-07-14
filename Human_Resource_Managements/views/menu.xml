@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem
+            id="menu_Human_Resource_Managements_root"
+            name="Human Resource Managements"
+            sequence="10"/>
+
+        <menuitem
+            id="menu_Option"
+            name="Option"
+            parent="menu_Human_Resource_Managements_root"
+            sequence="20"/>
+
+        <menuitem
+            id="menu_Executive_Management"
+            name="Executive Management"
+            parent="menu_Human_Resource_Managements_root"
+            sequence="20"/>
+
+        <menuitem
+            id="menu_Accounting_and_Finance"
+            name="Accounting - Finance"
+            parent="menu_Human_Resource_Managements_root"
+            sequence="20"/>
+    </data>
+</odoo>

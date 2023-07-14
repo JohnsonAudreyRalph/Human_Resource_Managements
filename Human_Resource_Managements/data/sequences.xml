@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="sequence_employee_information" model="ir.sequence">
+            <field name="name">Sequence Employee Information</field>
+            <field name="code">employee.information</field>
+            <field name="prefix">EI_</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_department_information" model="ir.sequence">
+            <field name="name">Sequence Department Information</field>
+            <field name="code">department.information</field>
+            <field name="prefix">DI_</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_position_information" model="ir.sequence">
+            <field name="name">Sequence Position Information</field>
+            <field name="code">position.information</field>
+            <field name="prefix">PI_</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_education_level_information" model="ir.sequence">
+            <field name="name">Sequence Education Level Information</field>
+            <field name="code">education.level</field>
+            <field name="prefix">EL_</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_salary_grade_information" model="ir.sequence">
+            <field name="name">Sequence Salary Grade Information</field>
+            <field name="code">salary.grade</field>
+            <field name="prefix">SG_</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>
