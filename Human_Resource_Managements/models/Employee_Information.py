@@ -67,9 +67,10 @@ class EmployeeInformation(models.Model):
             today = date.today()
             if record.Date:
                 record.Age = today.year - record.Date.year
+                if record.Age == 0:
+                    raise ValidationError("Lỗi. Độ tuổi nhập không đúng╰(*°▽°*)╯")
             else:
                 record.Age = 0
-                raise ValidationError("Lỗi. Độ tuổi nhập không đúng╰(*°▽°*)╯")
 
     @api.constrains('Email')
     def _validate_email(self):

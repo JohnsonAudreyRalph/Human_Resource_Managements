@@ -21,6 +21,9 @@
         'views/Education_Level.xml',
         'views/Salary_Grade.xml',
     ],
+    'images': [
+        'static/description/banner.gif',
+    ],
     'depends': ['mail'],
     'license': 'LGPL-3',
     'installable': True,
