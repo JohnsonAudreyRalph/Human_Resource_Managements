@@ -18,14 +18,17 @@
                         <div class="oe_title">
                             <h1>
                                 <field name="Employee_ID" readonly="1"/>
+                                <br/>
+                                <field name="priority" widget="priority" class="mr-3"/>
                             </h1>
                         </div>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
                         <group>
                             <field name="name"/>
+                            <field name="Date"/>
                             <field name="Age"/>
                             <field name="Gender"/>
                             <field name="Address"/>
-                            <field name="Date"/>
                             <field name="Email"/>
                             <field name="Phone_Number"/>
                             <field name="Ethnicity"/>
@@ -37,6 +40,7 @@
                                    options="{'no_edit': True, 'no_create': True, 'no_open': True}"/>
                             <field name="Salary_Grade_ID"
                                    options="{'no_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="active" invisible="1"/>
                         </group>
                     </sheet>
                     <div class="oe_chatter">
@@ -53,7 +57,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="Employee_ID"/>
-                    <field name="config_name"/>
+                    <field name="name"/>
                     <field name="Age"/>
                     <field name="Gender"/>
                     <field name="Address"/>
@@ -71,14 +75,14 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="Employee_ID"/>
-                    <field name="config_name"/>
+                    <field name="name"/>
                     <field name="Age"/>
                     <filter string="Lọc theo Nam" name="Nam" domain="[('Gender', '=', 'Male')]"/>
                     <separator/>
                     <filter string="Lọc theo Nữ" name="Nữ" domain="[('Gender', '=', 'Female')]"/>
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
                     <group expand="0" string="Group By">
-                        <filter string="Nhóm theo tuổi" name="Age" domain="[]" context="{'group_by': 'Age'}"/>
-                        <separator/>
                         <filter string="Nhóm theo dân tộc" name="Ethnicity" domain="[]" context="{'group_by': 'Ethnicity'}"/>
                     </group>
                 </search>

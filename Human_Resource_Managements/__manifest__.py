@@ -8,7 +8,7 @@
     'sequence': 3,
     'category': '',
     'summary': '',
-    'website': 'https://github.com/JohnsonAudreyRalph?tab=repositories',
+    'website': 'https://github.com/JohnsonAudreyRalph/Human_Resource_Managements',
     'description': """Phần mềm quản trị nhân viên""",
     'demo': [],
     'data': [
